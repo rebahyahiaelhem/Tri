@@ -6,16 +6,26 @@
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Tri</title>
     <script>
-       let Somme=0;
+       let somme=0;
        let min=-1;
        let max=-1; 
-        
+        let t=[];
         function calcul() {
+            let x=parseInt( document.getElementById("nb").value);
+            t.push(x);
         console.log("intocalcul function");
-          document.getElementById("Tab").innerHTML =  document.getElementById("Tab").innerHTML + " "+document.getElementById("nb").value;
+          document.getElementById("Tab").innerHTML = t;
+          somme=somme+x;
+          document.getElementById("somme").innerHTML=somme;
+       
+            document.getElementById("min").innerHTML=Math.min(...t);
         
+        if (max<x)
+            max=x; 
+            document.getElementById("max").innerHTML=max;
+            document.getElementById("tri").innerHTML=t.sort();
         }
-        
+       
         </script>
 </head>
 <body>
@@ -23,14 +33,14 @@
    
    
     <label> Entrer un entier </label>
-    <input type="text" id="nb">
+    <input type="number" id="nb">
     <button  onclick="calcul()" >  +</button> <br>
 
 </p>
 <p id="Tab"></p>
-<p id="Somme"> </p>
-<p id="Min"></p>
-<p id="Max"></p>
-<p id="Tri"></p>
+<p id="somme">somme </p>
+<p id="min">min</p>
+<p id="max">max</p>
+<p id="tri">tri</p>
 </body>
 </html>
